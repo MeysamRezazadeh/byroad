@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Byroad</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true">
+        <rect width="16" height="16" rx="3.5" fill="#1f4a38"/>
+        <path d="M5.5 13.5V2.8" stroke="#f4ecdc" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M5.5 10.5C5.5 7.6 10.5 8.4 10.5 5V2.8" stroke="#f2a33a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="name">Byroad</span>
+    </div>
+    <label class="power" title="Turn the proxy on or off">
+      <input type="checkbox" id="power" role="switch">
+      <span class="power-track"><span class="power-knob"></span></span>
+      <span class="power-text" id="powerText">Off</span>
+    </label>
+  </header>
+
+  <p class="status" id="status"></p>
+  <p class="alert" id="alert" hidden></p>
+
+  <section class="here" id="here" hidden>
+    <div class="here-info">
+      <img class="here-icon" id="hereIcon" alt="">
+      <div class="here-text">
+        <span class="here-host" id="hereHost"></span>
+        <span class="here-state" id="hereState"></span>
+      </div>
+    </div>
+    <button type="button" class="btn" id="hereBtn"></button>
+  </section>
+
+  <nav class="modes" role="radiogroup" aria-label="What goes through the proxy">
+    <button type="button" class="mode" data-mode="selective" role="radio">Only my sites</button>
+    <button type="button" class="mode" data-mode="global" role="radio">Everything</button>
+  </nav>
+
+  <section class="block">
+    <h2>Proxy server</h2>
+    <div class="server">
+      <select id="proxyType" aria-label="Protocol">
+        <option value="socks5">SOCKS5</option>
+        <option value="socks4">SOCKS4</option>
+        <option value="http">HTTP</option>
+        <option value="https">HTTPS</option>
+      </select>
+      <input type="text" id="proxyHost" placeholder="127.0.0.1" aria-label="Host" spellcheck="false" autocomplete="off">
+      <span class="colon">:</span>
+      <input type="text" id="proxyPort" placeholder="1080" aria-label="Port" inputmode="numeric" spellcheck="false" autocomplete="off">
+    </div>
+    <p class="field-error" id="serverError" hidden></p>
+  </section>
+
+  <section class="block" id="sitesBlock" hidden>
+    <h2>Services</h2>
+    <div class="chips" id="presets"></div>
+
+    <div class="row-head" id="tabsHead">
+      <h2>Open tabs</h2>
+    </div>
+    <ul class="list" id="tabs"></ul>
+
+    <div class="row-head">
+      <h2>Your sites <span class="count" id="siteCount"></span></h2>
+      <div class="links">
+        <button type="button" class="link" id="copyBtn">Copy</button>
+        <button type="button" class="link" id="pasteBtn">Paste list</button>
+        <button type="button" class="link danger" id="clearBtn">Clear</button>
+      </div>
+    </div>
+
+    <div class="paste" id="pasteBox" hidden>
+      <textarea id="pasteText" rows="4" spellcheck="false" placeholder="One site per line, or separated by commas"></textarea>
+      <div class="paste-actions">
+        <button type="button" class="link" id="pasteCancel">Cancel</button>
+        <button type="button" class="btn small" id="pasteAdd">Add sites</button>
+      </div>
+    </div>
+
+    <form class="add" id="addForm" autocomplete="off">
+      <input type="text" id="addInput" placeholder="Add a site, e.g. example.com" spellcheck="false">
+      <button type="submit" class="btn small">Add</button>
+    </form>
+    <ul class="list compact" id="sites"></ul>
+  </section>
+
+  <details class="block more">
+    <summary>Always go direct</summary>
+    <p class="note">These sites never use the proxy, in either mode. Local addresses are always direct.</p>
+    <textarea id="bypass" rows="3" spellcheck="false" placeholder="intranet.example.com"></textarea>
+  </details>
+
+  <footer class="bottom">
+    <button type="button" class="link" id="ipBtn">Check my IP</button>
+    <span class="ip" id="ipResult" aria-live="polite"></span>
+    <span class="ver" id="version"></span>
+  </footer>
+
+  <script src="../lib/domains.js"></script>
+  <script src="presets.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

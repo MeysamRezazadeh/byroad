@@ -1,0 +1,16 @@
+name: Service preset
+description: Ask for a new service, or report one that doesn't fully load
+labels: [preset]
+body:
+  - type: input
+    id: service
+    attributes:
+      label: Service
+      placeholder: e.g. Twitch
+    validations:
+      required: true
+  - type: textarea
+    id: domains
+    attributes:
+      label: Domains it needs (if you know them)
+      description: From DevTools → Network. Parent domains are enough (examplecdn.net, not img3.examplecdn.net).

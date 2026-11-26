@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Byroad — Per-Site Proxy",
+  "short_name": "Byroad",
+  "version": "1.0.0",
+  "description": "Send only the sites you pick through your SOCKS5 or HTTP proxy. Everything else stays on your normal connection.",
+  "minimum_chrome_version": "116",
+  "homepage_url": "https://github.com/MeysamRezazadeh/byroad",
+  "permissions": ["proxy", "storage", "tabs", "contextMenus"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Byroad",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

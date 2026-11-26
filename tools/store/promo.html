@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    background: #1f4a38;
+    color: #f4ecdc;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    display: flex; align-items: center;
+    position: relative;
+  }
+  .roads { position: absolute; inset: 0; }
+  .text { position: relative; }
+  .name { font-weight: 700; letter-spacing: -0.02em; }
+  .tag { color: #cfe0d4; }
+
+  body.small { padding: 0 34px; }
+  body.small .name { font-size: 54px; line-height: 1; margin-bottom: 14px; }
+  body.small .tag { font-size: 19px; line-height: 1.35; max-width: 230px; }
+
+  body.marquee { padding: 0 110px; }
+  body.marquee .name { font-size: 112px; line-height: 1; margin-bottom: 22px; }
+  body.marquee .tag { font-size: 34px; line-height: 1.3; max-width: 560px; }
+</style>
+</head>
+<body>
+  <svg class="roads" id="roads" preserveAspectRatio="xMaxYMid slice"></svg>
+  <div class="text">
+    <div class="name">Byroad</div>
+    <div class="tag">Only the sites you pick go through your proxy.</div>
+  </div>
+<script>
+  var size = new URLSearchParams(location.search).get('size') || 'small';
+  document.body.className = size;
+  var svg = document.getElementById('roads');
+  // The logo's fork, drawn large and bleeding off the right edge.
+  if (size === 'small') {
+    svg.setAttribute('viewBox', '0 0 440 280');
+    svg.innerHTML =
+      '<path d="M330 320 V-40" stroke="#f4ecdc" stroke-width="34" stroke-linecap="round" fill="none" opacity=".95"/>' +
+      '<path d="M330 230 C330 150 410 170 410 90 V-40" stroke="#f2a33a" stroke-width="34" stroke-linecap="round" fill="none"/>';
+  } else {
+    svg.setAttribute('viewBox', '0 0 1400 560');
+    svg.innerHTML =
+      '<path d="M1060 640 V-80" stroke="#f4ecdc" stroke-width="64" stroke-linecap="round" fill="none" opacity=".95"/>' +
+      '<path d="M1060 450 C1060 290 1220 330 1220 170 V-80" stroke="#f2a33a" stroke-width="64" stroke-linecap="round" fill="none"/>';
+  }
+</script>
+</body>
+</html>

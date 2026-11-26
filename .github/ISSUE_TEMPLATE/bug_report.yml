@@ -1,0 +1,39 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 131, Edge 131, Brave 1.73…
+    validations:
+      required: true
+  - type: dropdown
+    id: proxy
+    attributes:
+      label: Proxy type
+      options: [SOCKS5, SOCKS4, HTTP, HTTPS]
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options: [Only my sites, Everything]
+  - type: input
+    id: version
+    attributes:
+      label: Byroad version
+      description: Shown at the bottom right of the popup.
+      placeholder: v1.0.0
+  - type: markdown
+    attributes:
+      value: Please don't paste proxy passwords or private server addresses.

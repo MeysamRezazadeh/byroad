@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Byroad mark: a road that forks. 96px artwork on a 128px canvas (Chrome Web Store guideline). -->
+  <rect x="16" y="16" width="96" height="96" rx="24" fill="#1f4a38"/>
+  <path d="M50 99 V29" fill="none" stroke="#f4ecdc" stroke-width="13" stroke-linecap="round"/>
+  <path d="M50 80 C50 60 80 66 80 44 V29" fill="none" stroke="#f2a33a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
